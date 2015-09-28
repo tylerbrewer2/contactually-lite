@@ -22,6 +22,7 @@ back to the user. This is an un-timed exercise.
   - Only contacts numbers with an extension
   - Only contacts with `.com` email addresses
   - Order the contacts alphabetically by email address
+- Deploy your app to a free instance of [Heroku](https://www.heroku.com/pricing) and email us the link
 
 Use of gems and jQuery is allowed, but no pre-built table-sorting libraries please.
 
