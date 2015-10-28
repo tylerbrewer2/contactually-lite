@@ -1,7 +1,13 @@
 <h1><%= @user.name %>, here are your contacts:</h1>
+<button class="com">Show .com Email addresses</button>
+<button class="all">Show All</button>
 <% @user.contacts.each do |contact|  %>
   <div id = <%= "#{contact.id}" %>>
-    <p><%= "#{contact.first_name}, #{contact.last_name}, #{contact.email}, #{contact.phone}, #{contact.company}" %></p>
+    <p class = "firstName"><%= contact.first_name %></p>
+    <p class = "lastName"><%= contact.last_name %></p>
+    <p class = "email"><%= contact.email %></p>
+    <p class = "phone"><%= contact.phone %></p>
+    <p class = "company"><%= contact.company %></p>
     <%= link_to "Remove", contact, remote: true, method: :delete %>
   </div>
 <% end %>

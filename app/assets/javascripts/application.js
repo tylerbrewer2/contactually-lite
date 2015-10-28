@@ -14,3 +14,29 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+var comChecker = function(){
+  $(".email").each(function(){
+    var currentEmail = $(this).text()
+    if (currentEmail.substr(currentEmail.length - 4) !== ".com"){
+      $(this).parent().fadeOut();
+    }
+  })
+}
+
+var showAll = function(){
+  $(".firstName").each(function(){
+    $(this).parent().fadeIn();
+  })
+}
+
+$(document).ready(function(){
+  $(".com").click(function(){
+    comChecker();
+  })
+
+  $(".all").click(function(){
+    showAll();
+  })
+})
