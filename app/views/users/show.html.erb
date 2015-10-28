@@ -1,6 +1,8 @@
 <h1><%= @user.name %>, here are your contacts:</h1>
 <button class="com">Show .com Email addresses</button>
 <button class="all">Show All</button>
+<button class="extensions">Show Numbers with Extensions</button>
+<button class="international">Show international Numbers</button>
 <% @user.contacts.each do |contact|  %>
   <div id = <%= "#{contact.id}" %>>
     <p class = "firstName"><%= contact.first_name %></p>

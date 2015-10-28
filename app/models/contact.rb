@@ -9,10 +9,21 @@ class Contact < ActiveRecord::Base
       contact.first_name = contact_info[0]
       contact.last_name = contact_info[1]
       contact.email = contact_info[2]
-      contact.phone = contact_info[3]
+      contact.phone = contact.normalized_phone_number(contact_info[3])
       contact.company = contact_info[4]
       contact.user_id = user.id
       contact.save
     end
+  end
+
+  def normalized_phone_number(number)
+    number.gsub!(")", "-")
+    number.gsub!("(", "")
+    number.gsub!(".", "-")
+    if number[0] + number[1] == "1-"
+        number[0] = ""
+        number[0] = ""
+    end
+    number
   end
 end
