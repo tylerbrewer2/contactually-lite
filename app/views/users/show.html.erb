@@ -1,5 +1,7 @@
 <h1><%= @user.name %>, here are your contacts:</h1>
 <% @user.contacts.each do |contact|  %>
-  <p><%= "#{contact.first_name}, #{contact.last_name}, #{contact.email}, #{contact.phone}, #{contact.company}" %></p>
-  <%= link_to "Remove", contact, method: :delete %>
+  <div id = <%= "#{contact.id}" %>>
+    <p><%= "#{contact.first_name}, #{contact.last_name}, #{contact.email}, #{contact.phone}, #{contact.company}" %></p>
+    <%= link_to "Remove", contact, remote: true, method: :delete %>
+  </div>
 <% end %>
