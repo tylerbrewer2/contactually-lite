@@ -19,7 +19,7 @@ var showAll = function(){
   $(".firstName").each(function(){
     $(this).parent().fadeIn();
   })
-}
+};
 
 var comChecker = function(){
   $(".email").each(function(){
@@ -28,7 +28,7 @@ var comChecker = function(){
       $(this).parent().fadeOut();
     }
   })
-}
+};
 
 var extensionChecker = function(){
   $(".phone").each(function(){
@@ -36,18 +36,29 @@ var extensionChecker = function(){
       $(this).parent().fadeOut();
     }
   })
-}
+};
 
 var internationalChecker = function(){
   $(".phone").each(function(){
     var currentPhone = $(this).text();
-    debugger;
     if (usAreaCodes.indexOf(currentPhone.substr(0,3)) !== -1){
       $(this).parent().fadeOut();
     }
   })
-}
+};
 
+var sortByEMail = function(){
+  var array = [];
+  $(".email").each(function(){
+    array.push($(this).text())
+  })
+  array.sort()
+  for (var i = 0; i < array.length; i++){
+    var nextEmail = $('*:contains(' + array[i] + '):nth-child(3)').parent()
+    nextEmail.remove()
+    $("body").append(nextEmail)
+  }
+}
 
 $(document).ready(function(){
   $(".all").click(function(){
@@ -64,9 +75,10 @@ $(document).ready(function(){
   $(".international").click(function(){
     internationalChecker();
   })
+  $(".sortEmail").click(function(){
+    sortByEMail();
+  })
 })
-
-
 
 // just want to throw it out there that this makes me cringe on the inside
 var usAreaCodes = ["205", "251", "256", "334", "938", "907", "684", "480", "520", "602", "623", "928", "479", "501", "870", "209",
@@ -84,4 +96,4 @@ var usAreaCodes = ["205", "251", "256", "334", "938", "907", "684", "480", "520"
 803, "843", "864", "605", "423", "615", "731", "865", "901", "931", "210", "214", "254", "281", "325", "346", "361", "409", "430", "432",
 469, "512", "682", "713", "737", "806", "817", "830", "832", "903", "915", "936", "940", "956", "972", "979", "385", "435", "801", "802",
 340, "276", "434", "540", "571", "703", "757", "804", "206", "253", "360", "425", "509", "202", "304", "681", "262", "414", "534", "608",
-715, "920", "307", "321", "352", "386", "407"]
+715, "920", "307", "321", "352", "386", "407"];

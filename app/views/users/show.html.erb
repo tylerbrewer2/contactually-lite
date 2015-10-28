@@ -3,6 +3,7 @@
 <button class="all">Show All</button>
 <button class="extensions">Show Numbers with Extensions</button>
 <button class="international">Show international Numbers</button>
+<button class="sortEmail">Sort By Email</button>
 <% @user.contacts.each do |contact|  %>
   <div id = <%= "#{contact.id}" %>>
     <p class = "firstName"><%= contact.first_name %></p>
