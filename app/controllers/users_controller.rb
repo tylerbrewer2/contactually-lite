@@ -5,13 +5,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     user = User.new(user_params)
     if user.save
-      contact_file = params[:user][:contact_file].read.split("\n")
+      Contact.create_new_contacts(params[:user][:contact_file], user)
+      redirect_to user_path(user)
     else
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
