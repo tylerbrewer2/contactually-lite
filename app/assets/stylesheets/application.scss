@@ -43,7 +43,7 @@ input {
   margin-top: 10px;
 }
 .buttons {
-  margin-top: 20px;
+  margin-top: 35px;
   text-align: center;
 }
 .btn{
@@ -61,5 +61,11 @@ input {
   display: inline-block;
 }
 .active_button {
-  transform: translateY(-20px);
+  transform: translateY(-15px);
+}
+.firstName {
+  padding-right: 2px;
+}
+.firstName, .lastName {
+  font-weight: 700;
 }

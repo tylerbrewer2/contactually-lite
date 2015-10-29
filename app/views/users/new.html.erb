@@ -5,8 +5,8 @@
   </div>
   <%= form_for @user do |f| %>
     <%= f.label "What is your name?" %><br>
-    <%= f.text_field :name %><br>
-    <%= f.file_field :contact_file %><br>
+    <%= f.text_field :name, required: true %><br>
+    <%= f.file_field :contact_file, required: true %><br>
     <%= f.submit "See your contacts", class: "btn btn-info" %>
   <% end %>
 </div>
