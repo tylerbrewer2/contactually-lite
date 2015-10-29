@@ -1,6 +1,8 @@
 class Contact < ActiveRecord::Base
   belongs_to :user
 
+  validates_presence_of :first_name, :last_name, :email, :phone, :company, :user_id
+
   def self.create_new_contacts(tempfile, user)
     contact_file = tempfile.read.split("\n")
     contact_file.drop(1).each do |line|
