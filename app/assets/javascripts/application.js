@@ -24,7 +24,6 @@ var showAll = function(){
 
 var comActive = false;
 var comChecker = function(){
-  debugger;
   if (!comActive) {
     comActive = true;
     $(".email").each(function(){
