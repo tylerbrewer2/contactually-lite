@@ -22,8 +22,10 @@
 body {
   font-family: "Open Sans", "Arial", sans-serif;
 }
-.header {
+.new_user_div {
   margin-top: 200px;
+}
+.header {
   text-align: center;
 }
 .header h2 {
@@ -39,4 +41,25 @@ body {
 }
 input {
   margin-top: 10px;
+}
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+.btn{
+  transition: all .5s ease;
+}
+.contacts {
+  margin-top: 30px;
+}
+.individual_contact {
+  width: 1000px;
+  margin: 0 auto;
+}
+.contact_ele {
+  padding-right: 10px;
+  display: inline-block;
+}
+.active_button {
+  transform: translateY(-20px);
 }

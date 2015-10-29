@@ -1,16 +1,23 @@
-<h1><%= @user.name %>, here are your contacts:</h1>
-<button class="com">Show .com Email addresses</button>
-<button class="all">Show All</button>
-<button class="extensions">Show Numbers with Extensions</button>
-<button class="international">Show international Numbers</button>
-<button class="sortEmail">Sort By Email</button>
-<% @user.contacts.each do |contact|  %>
-  <div id = <%= "#{contact.id}" %>>
-    <p class = "firstName"><%= contact.first_name %></p>
-    <p class = "lastName"><%= contact.last_name %></p>
-    <p class = "email"><%= contact.email %></p>
-    <p class = "phone"><%= contact.phone %></p>
-    <p class = "company"><%= contact.company %></p>
-    <%= link_to "Remove", contact, remote: true, method: :delete %>
-  </div>
-<% end %>
+<div class="header">
+  <h1><%= @user.name %>, here are your contacts:</h1>
+</div>
+<div class="buttons">
+  <button class="all btn btn-success">Show All</button>
+  <button class="international btn btn-warning">Show international Numbers</button>
+  <button class="extensions btn btn-info">Show Numbers with Extensions</button>
+  <button class="com btn btn-primary">Show .com Email addresses</button>
+  <button class="sortEmail btn btn-danger">Sort By Email</button>
+</div>
+
+<div class="contacts">
+  <% @user.contacts.each do |contact|  %>
+    <div class="individual_contact" id = <%= "#{contact.id}" %>>
+      <p class = "firstName contact_ele"><%= contact.first_name %></p>
+      <p class = "lastName contact_ele"><%= contact.last_name %></p>
+      <p class = "email contact_ele"><%= contact.email %></p>
+      <p class = "phone contact_ele"><%= contact.phone %></p>
+      <p class = "company contact_ele"><%= contact.company %></p>
+      <%= link_to "Remove", contact, remote: true, method: :delete %>
+    </div>
+  <% end %>
+</div>

@@ -22,30 +22,66 @@ var showAll = function(){
   })
 };
 
+var comActive = false;
 var comChecker = function(){
-  $(".email").each(function(){
-    var currentEmail = $(this).text()
-    if (currentEmail.substr(currentEmail.length - 4) !== ".com"){
-      $(this).parent().fadeOut();
-    }
-  })
+  debugger;
+  if (!comActive) {
+    comActive = true;
+    $(".email").each(function(){
+      var currentEmail = $(this).text()
+      if (currentEmail.substr(currentEmail.length - 4) !== ".com"){
+        $(this).parent().fadeOut();
+      }
+    })
+  } else {
+    comActive = false;
+    $(".email").each(function(){
+      var currentEmail = $(this).text()
+      if (currentEmail.substr(currentEmail.length - 4) !== ".com"){
+        $(this).parent().fadeIn();
+      }
+    })
+  }
 };
 
+var extensionActive = false;
 var extensionChecker = function(){
-  $(".phone").each(function(){
-    if ($(this).text().indexOf("x") === -1){
-      $(this).parent().fadeOut();
-    }
-  })
+  if(!extensionActive) {
+    extensionActive = true;
+    $(".phone").each(function(){
+      if ($(this).text().indexOf("x") === -1){
+        $(this).parent().fadeOut();
+      }
+    })
+  } else {
+    extensionActive = false;
+    $(".phone").each(function(){
+      if ($(this).text().indexOf("x") === -1){
+        $(this).parent().fadeIn();
+      }
+    })
+  }
 };
 
+var internationalActive = false;
 var internationalChecker = function(){
-  $(".phone").each(function(){
-    var currentPhone = $(this).text();
-    if (usAreaCodes.indexOf(currentPhone.substr(0,3)) !== -1){
-      $(this).parent().fadeOut();
-    }
-  })
+  if (!internationalActive) {
+    internationalActive = true;
+    $(".phone").each(function(){
+      var currentPhone = $(this).text();
+      if (usAreaCodes.indexOf(currentPhone.substr(0,3)) !== -1){
+        $(this).parent().fadeOut();
+      }
+    })
+  } else {
+    internationalActive = false;
+    $(".phone").each(function(){
+      var currentPhone = $(this).text();
+      if (usAreaCodes.indexOf(currentPhone.substr(0,3)) !== -1){
+        $(this).parent().fadeIn();
+      }
+    })
+  }
 };
 
 var sortByEMail = function(){
@@ -55,9 +91,9 @@ var sortByEMail = function(){
   })
   array.sort()
   for (var i = 0; i < array.length; i++){
-    var nextEmail = $('*:contains(' + array[i] + '):nth-child(3)').parent()
+    var nextEmail = $('p.email:contains(' + array[i] + '):nth-child(3)').parent()
     nextEmail.remove()
-    $("body").append(nextEmail)
+    $(".contacts").append(nextEmail)
   }
 }
 
@@ -66,16 +102,21 @@ $(document).ready(function(){
     showAll();
   })
 
-  $(".com").click(function(){
-    comChecker();
+  $(".international").click(function(){
+    internationalChecker();
+    $(this).toggleClass("active_button")
   })
 
   $(".extensions").click(function(){
     extensionChecker();
+    $(this).toggleClass("active_button")
   })
-  $(".international").click(function(){
-    internationalChecker();
+
+  $(".com").click(function(){
+    comChecker();
+    $(this).toggleClass("active_button")
   })
+
   $(".sortEmail").click(function(){
     sortByEMail();
   })
