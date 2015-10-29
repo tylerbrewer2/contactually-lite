@@ -1,8 +1,12 @@
-<h1>Welcome to Contactually Lite!</h1>
-<h2>Please upload a file</h2>
-<%= form_for @user do |f| %>
-  <%= f.label "Name" %><br>
-  <%= f.text_field :name %><br>
-  <%= f.file_field :contact_file %><br>
-  <%= f.submit "See your contacts!" %>
-<% end %>
+<div class="new_contact_box">
+  <div class="header">
+    <h1>Welcome to Contactually Lite</h1>
+    <h2>Please upload a file</h2>
+  </div>
+  <%= form_for @user do |f| %>
+    <%= f.label "What is your name?" %><br>
+    <%= f.text_field :name %><br>
+    <%= f.file_field :contact_file %><br>
+    <%= f.submit "See your contacts", class: "btn btn-info" %>
+  <% end %>
+</div>

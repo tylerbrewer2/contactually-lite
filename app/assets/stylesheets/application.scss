@@ -10,6 +10,33 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+*= require normalize-rails
  *= require_tree .
  *= require_self
  */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700);
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  font-family: "Open Sans", "Arial", sans-serif;
+}
+.header {
+  margin-top: 200px;
+  text-align: center;
+}
+.header h2 {
+  margin-top: 0;
+}
+.new_user {
+  margin-top: 25px;
+  text-align: center;
+}
+#user_contact_file {
+  display: inline-block;
+  width: 200px;
+}
+input {
+  margin-top: 10px;
+}
