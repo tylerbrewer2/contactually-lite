@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :contacts
-  resources :users
+  resources :users do
+    resources :contacts
+  end
+
+  delete '/users/contacts/:id', to: 'contacts#destroy', as: 'destroy_contact'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       Contact.create_new_contacts(params[:user][:contact_file], user)
-      redirect_to user_path(user)
+      redirect_to user_contacts_path(user)
     else
       render :new
     end
