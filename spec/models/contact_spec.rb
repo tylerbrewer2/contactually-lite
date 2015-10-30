@@ -34,30 +34,75 @@ RSpec.describe Contact, type: :model do
   end
 
   context "created without attributes" do
-    no_attributes = Contact.new
 
     it "is not valid without a first name" do
-      expect(no_attributes.valid?).to eq(false)
+      no_first_name = Contact.new(
+        last_name: "Brewer",
+        email_address: "tylerbrewer02@gmail.com",
+        phone_number: "614-448-6634",
+        company_name: "Contactually",
+        user_id: 1
+      )
+
+      expect(no_first_name.valid?).to eq(false)
     end
 
     it "is not valid without a last name" do
-      expect(no_attributes.valid?).to eq(false)
+      no_last_name = Contact.new(
+        first_name: "Tyler",
+        email_address: "tylerbrewer02@gmail.com",
+        phone_number: "614-448-6634",
+        company_name: "Contactually",
+        user_id: 1
+      )
+
+      expect(no_last_name.valid?).to eq(false)
     end
 
     it "is not valid without an email address" do
-      expect(no_attributes.valid?).to eq(false)
+
+      no_email_address = Contact.new(
+        first_name: "Tyler",
+        last_name: "Brewer",
+        phone_number: "614-448-6634",
+        company_name: "Contactually",
+        user_id: 1
+      )
+
+      expect(no_email_address.valid?).to eq(false)
     end
 
     it "is not valid without a phone number" do
-      expect(no_attributes.valid?).to eq(false)
+      no_phone_number = Contact.new(
+        first_name: "Tyler",
+        last_name: "Brewer",
+        email_address: "tylerbrewer02@gmail.com",
+        company_name: "Contactually",
+        user_id: 1
+      )
+      expect(no_phone_number.valid?).to eq(false)
     end
 
     it "is not valid without a company name" do
-      expect(no_attributes.valid?).to eq(false)
+      no_company_name = Contact.new(
+        first_name: "Tyler",
+        last_name: "Brewer",
+        email_address: "tylerbrewer02@gmail.com",
+        phone_number: "614-448-6634",
+        user_id: 1
+      )
+      expect(no_company_name.valid?).to eq(false)
     end
 
     it "is not valid without a user" do
-      expect(no_attributes.valid?).to eq(false)
+      no_user_id = Contact.new(
+        first_name: "Tyler",
+        last_name: "Brewer",
+        email_address: "tylerbrewer02@gmail.com",
+        phone_number: "614-448-6634",
+        company_name: "Contactually",
+      )
+      expect(no_user_id.valid?).to eq(false)
     end
 
   end
