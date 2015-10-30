@@ -7,9 +7,9 @@ RSpec.describe Contact, type: :model do
     contact = Contact.new
     contact.first_name = "Tyler"
     contact.last_name = "Brewer"
-    contact.email = "tylerbrewer02@gmail.com"
-    contact.phone = contact.normalized_phone_number("614-448-6634")
-    contact.company = "Contactually"
+    contact.email_address = "tylerbrewer02@gmail.com"
+    contact.phone_number = contact.normalized_phone_number("614-448-6634")
+    contact.company_name = "Contactually"
     contact.user_id = user.id
     contact.save
 
@@ -20,13 +20,13 @@ RSpec.describe Contact, type: :model do
       expect(contact.last_name).to eq("Brewer")
     end
     it "has an email address" do
-      expect(contact.email).to eq("tylerbrewer02@gmail.com")
+      expect(contact.email_address).to eq("tylerbrewer02@gmail.com")
     end
     it "has a phone number" do
-      expect(contact.phone).to eq("614-448-6634")
+      expect(contact.phone_number).to eq("614-448-6634")
     end
     it "has a company name" do
-      expect(contact.company).to eq("Contactually")
+      expect(contact.company_name).to eq("Contactually")
     end
     it "has a user" do
       expect(contact.user_id).to eq(user.id)

@@ -5,9 +5,8 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @contact_id = params[:id]
     contact = Contact.find(params[:id])
-    user = User.find(contact.user_id)
+    @contact_id = contact.id
     contact.destroy
     respond_to do |format|
       # for testing purposes

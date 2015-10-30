@@ -13,9 +13,9 @@ RSpec.describe ContactsController, type: :controller do
     contact = Contact.new
     contact.first_name = "Tyler"
     contact.last_name = "Brewer"
-    contact.email = "tylerbrewer02@gmail.com"
-    contact.phone = contact.normalized_phone_number("614-448-6634")
-    contact.company = "Contactually"
+    contact.email_address = "tylerbrewer02@gmail.com"
+    contact.phone_number = contact.normalized_phone_number("614-448-6634")
+    contact.company_name = "Contactually"
     contact.user_id = 1
     contact.save
 
