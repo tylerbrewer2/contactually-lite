@@ -1,16 +1,5 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
-*= require normalize-rails
+ *= require normalize-rails
  *= require_tree .
  *= require_self
  */
@@ -21,51 +10,4 @@
 
 body {
   font-family: "Open Sans", "Arial", sans-serif;
-}
-.new_user_div {
-  margin-top: 200px;
-}
-.header {
-  text-align: center;
-}
-.header h2 {
-  margin-top: 0;
-}
-.new_user {
-  margin-top: 25px;
-  text-align: center;
-}
-#user_contact_file {
-  display: inline-block;
-  width: 200px;
-}
-input {
-  margin-top: 10px;
-}
-.buttons {
-  margin-top: 35px;
-  text-align: center;
-}
-.btn{
-  transition: all .5s ease;
-}
-.contacts {
-  margin-top: 30px;
-}
-.individual_contact {
-  width: 1000px;
-  margin: 0 auto;
-}
-.contact_ele {
-  padding-right: 10px;
-  display: inline-block;
-}
-.active_button {
-  transform: translateY(-15px);
-}
-.firstName {
-  padding-right: 2px;
-}
-.firstName, .lastName {
-  font-weight: 700;
 }

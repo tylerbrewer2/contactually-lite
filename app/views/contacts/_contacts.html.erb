@@ -1,0 +1,12 @@
+<div class="contacts">
+  <% @user.contacts.each do |contact|  %>
+    <div class="individual_contact" id = <%= "#{contact.id}" %>>
+      <p class = "firstName contact_ele"><%= contact.first_name %></p>
+      <p class = "lastName contact_ele"><%= contact.last_name %></p>
+      <p class = "email contact_ele"><%= contact.email_address %></p>
+      <p class = "phone contact_ele"><%= contact.phone_number %></p>
+      <p class = "company contact_ele"><%= contact.company_name %></p>
+      <%= link_to "Remove", destroy_contact_path(contact.id), remote: true, method: :delete %>
+    </div>
+  <% end %>
+</div>

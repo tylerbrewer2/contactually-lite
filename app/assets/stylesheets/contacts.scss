@@ -1,3 +1,31 @@
 // Place all the styles related to the Contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.buttons {
+  margin-top: 35px;
+  text-align: center;
+}
+.btn{
+  transition: all .5s ease;
+}
+.contacts {
+  margin-top: 30px;
+}
+.individual_contact {
+  width: 1000px;
+  margin: 0 auto;
+}
+.contact_ele {
+  padding-right: 10px;
+  display: inline-block;
+}
+.active_button {
+  transform: translateY(-15px);
+}
+.firstName {
+  padding-right: 2px;
+}
+.firstName, .lastName {
+  font-weight: 700;
+}
