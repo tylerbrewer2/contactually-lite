@@ -32,18 +32,21 @@ var extensionChecker = function(){
   if(!extensionActive) {
     extensionActive = true;
     var phoneNumbers = $(".phone");
-    $(".phone").each(function(){
-      if ($(this).text().indexOf("x") === -1){
-        $(this).parent().fadeOut();
+    for (var i = 0; i < phoneNumbers.length; i++) {
+      var currentPhone = $(phoneNumbers[i]).text();
+      if (currentPhone.indexOf("x") === -1){
+        $(phoneNumbers[i]).parent().fadeOut();
       }
-    })
+    }
   } else {
     extensionActive = false;
-    $(".phone").each(function(){
-      if ($(this).text().indexOf("x") === -1){
-        $(this).parent().fadeIn();
+    var phoneNumbers = $(".phone");
+    for (var i = 0; i < phoneNumbers.length; i++) {
+      var currentPhone = $(phoneNumbers[i]).text();
+      if (currentPhone.indexOf("x") === -1){
+        $(phoneNumbers[i]).parent().fadeIn();
       }
-    })
+    }
   }
 };
 
@@ -51,28 +54,32 @@ var internationalActive = false;
 var internationalChecker = function(){
   if (!internationalActive) {
     internationalActive = true;
-    $(".phone").each(function(){
-      var currentPhone = $(this).text();
+    var phoneNumbers = $(".phone");
+    for (var i = 0; i < phoneNumbers.length; i++) {
+      var currentPhone = $(phoneNumbers[i]).text();
       if (usAreaCodes.indexOf(currentPhone.substr(0,3)) !== -1){
-        $(this).parent().fadeOut();
+        $(phoneNumbers[i]).parent().fadeOut();
       }
-    })
+    }
   } else {
     internationalActive = false;
-    $(".phone").each(function(){
-      var currentPhone = $(this).text();
+    var phoneNumbers = $(".phone");
+    for (var i = 0; i < phoneNumbers.length; i++) {
+      var currentPhone = $(phoneNumbers[i]).text();
       if (usAreaCodes.indexOf(currentPhone.substr(0,3)) !== -1){
-        $(this).parent().fadeIn();
+        $(phoneNumbers[i]).parent().fadeIn();
       }
-    })
+    }
   }
 };
 
 var sortByEMail = function(){
   var array = [];
-  $(".email").each(function(){
-    array.push($(this).text())
-  })
+  var emails = $(".email");
+  for (var i = 0; i < emails.length; i++){
+    var currentEmail = $(emails[i]).text();
+    array.push(currentEmail);
+  }
   array.sort()
   for (var i = 0; i < array.length; i++){
     var nextEmail = $('p.email:contains(' + array[i] + '):nth-child(3)').parent()
